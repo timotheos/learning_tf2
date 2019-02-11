@@ -18,18 +18,17 @@ void poseCallback(const turtlesim::PoseConstPtr& msg) {
   transformStamped.transform.translation.z = 0.0;
   tf2::Quaternion q;
   q.setRPY(0,0,msg->theta);
-  transformStamped.transform.rotation.y = q.y();
+  transformStamped.transform.rotation.x = q.x();transformStamped.transform.rotation.y = q.y();
   transformStamped.transform.rotation.z = q.z();
   transformStamped.transform.rotation.w = q.w();
-  transformStamped.transform.rotation.x = q.x();
-
+  
   br.sendTransform(transformStamped);
 }
 
-int main(int argc, char const *argv[]) {
+int main(int argc, char** argv) {
   ros::init(argc, argv, "my_tf_broadcaster");
 
-  ros::NodeHandle private_node*("~");
+  ros::NodeHandle private_node("~");
   if (! private_node.hasParam("turtle"))
   {
     if (argc != 2)

@@ -135,7 +135,16 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/learning_tf2_node.cpp)
+## EDIT
+
+add_executable(turtle_tf2_broadcaster src/turtle_tf2_broadcaster.cpp)
+target_link_libraries(turtle_tf2_broadcaster ${catkin_LIBRARIES})
+
+add_executable(turtle_tf2_listener src/turtle_tf2_listener.cpp)
+target_link_libraries(turtle_tf2_listener ${catkin_LIBRARIES})
+
+add_executable(frame_tf2_broadcaster src/frame_tf2_broadcaster.cpp) 
+target_link_libraries(frame_tf2_broadcaster ${catkin_LIBRARIES})
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -155,7 +164,6 @@ include_directories(
 #############
 ## Install ##
 #############
-
 # all install targets should use catkin DESTINATION variables
 # See http://ros.org/doc/api/catkin/html/adv_user_guide/variables.html
 
@@ -181,11 +189,11 @@ include_directories(
 # )
 
 ## Mark other files for installation (e.g. launch and bag files, etc.)
-# install(FILES
-#   # myfile1
-#   # myfile2
-#   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
-# )
+ install(FILES
+   start_demo.launch
+   # myfile2
+   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+ )
 
 #############
 ## Testing ##
