@@ -11,4 +11,5 @@
   <node pkg="learning_tf2" type="turtle_tf2_broadcaster" name="turtle1_tf2_broadcaster" args="/turtle1"/>
   <node pkg="learning_tf2" type="turtle_tf2_broadcaster" name="turtle2_tf2_broadcaster" args="/turtle2"/>
   <node pkg="learning_tf2" type="turtle_tf2_listener" name="listener" />
+  <node pkg="learning_tf2" type="frame_tf2_broadcaster" name="broadcaster_frame" />
 </launch>
